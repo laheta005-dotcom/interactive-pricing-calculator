@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>حاسبة تكلفة المشروع | Project Cost Calculator</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="calculator-card">
+    <header class="calc-header">
+      <span class="badge">أداة تقدير التكلفة</span>
+      <h1>احسب تكلفة مشروعك اللحظية</h1>
+      <p>اختر مواصفات موقعك للحصول على سعر ومدة تنفيذ تقديرية</p>
+    </header>
+
+    <form id="calcForm">
+      <!-- 1. نوع المشروع -->
+      <div class="step-group">
+        <label class="step-label">1. حدد نوع المشروع</label>
+        <div class="options-grid" id="typeGrid">
+          <label class="option-card active">
+            <input type="radio" name="projectType" value="landing" data-price="50" data-days="2" checked>
+            <i class="fa-solid fa-laptop-code"></i>
+            <span>صفحة هبوط (Landing Page)</span>
+          </label>
+          <label class="option-card">
+            <input type="radio" name="projectType" value="store" data-price="150" data-days="5">
+            <i class="fa-solid fa-store"></i>
+            <span>متجر إلكتروني متكامل</span>
+          </label>
+          <label class="option-card">
+            <input type="radio" name="projectType" value="dashboard" data-price="120" data-days="4">
+            <i class="fa-solid fa-chart-pie"></i>
+            <span>لوحة تحكم (Dashboard)</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- 2. عدد الصفحات (Slider) -->
+      <div class="step-group">
+        <div class="slider-header">
+          <label class="step-label">2. عدد الصفحات المطلوبة</label>
+          <span class="slider-value" id="pagesValue">3 صفحات</span>
+        </div>
+        <input type="range" id="pagesSlider" min="1" max="10" value="3" class="custom-range">
+      </div>
+
+      <!-- 3. الميزات الإضافية (Checkboxes) -->
+      <div class="step-group">
+        <label class="step-label">3. ميزات إضافية</label>
+        <div class="checkbox-list">
+          <label class="checkbox-card">
+            <input type="checkbox" class="feature-check" data-price="20" data-days="1">
+            <span class="checkmark"></span>
+            <div class="feature-info">
+              <strong>دعم الوضع الليلي (Dark Mode)</strong>
+              <span>تجربة سلسة ومريحة للعين</span>
+            </div>
+            <span class="price-tag">+$20</span>
+          </label>
+
+          <label class="checkbox-card">
+            <input type="checkbox" class="feature-check" data-price="40" data-days="1">
+            <span class="checkmark"></span>
+            <div class="feature-info">
+              <strong>ربط بوابات الدفع (Payment Gateway)</strong>
+              <span>فيزا، ماستر كارد، وPayPal</span>
+            </div>
+            <span class="price-tag">+$40</span>
+          </label>
+
+          <label class="checkbox-card">
+            <input type="checkbox" class="feature-check" data-price="25" data-days="1">
+            <span class="checkmark"></span>
+            <div class="feature-info">
+              <strong>تهيئة محركات البحث (SEO Basic)</strong>
+              <span>تسريع الموقع وتحسين الظهور</span>
+            </div>
+            <span class="price-tag">+$25</span>
+          </label>
+        </div>
+      </div>
+    </form>
+
+    <!-- ملخص النتيجة اللحظية -->
+    <div class="summary-box">
+      <div class="stat">
+        <span>الوقت التقديري:</span>
+        <strong id="totalDays">3 أيام</strong>
+      </div>
+      <div class="stat total">
+        <span>التكلفة الإجمالية:</span>
+        <strong id="totalPrice">$70</strong>
+      </div>
+      <button class="submit-btn" type="button" onclick="alert('تم إرسال طلب الاستشارة بنجاح!')">
+        أطلب المشروع الآن <i class="fa-solid fa-arrow-left"></i>
+      </button>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
